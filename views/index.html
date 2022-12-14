@@ -2,10 +2,11 @@
     <button onclick="window.location.reload()">Run Program</button>
     <div id="terminal"></div>
 
-    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
     <script>
-        function getIP(json) {
-            return json.ip
+        const userIP = async () => {
+            const json = await fetch("https://api.ipify.org/?format=json")
+                .then(res => res.json());
+            return json
         }
         var term = new Terminal({
             cols: 80,
@@ -14,7 +15,7 @@
         term.open(document.getElementById('terminal'));
         term.writeln('Running startup command: python3 run.py');
         term.writeln('');
-        term.writeIn("Your IP: " + getIP());
+        term.writeIn("Your IP: " + userIP());
 
         var ws = new WebSocket(location.protocol.replace('http', 'ws') + '//' + location.hostname + (location.port ? (
             ':' + location.port) : '') + '/');
