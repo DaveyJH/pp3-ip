@@ -3,10 +3,6 @@
     <div id="terminal"></div>
 
     <script>
-        const userIP = async () => {
-            const json = await fetch("https://api.ipify.org/?format=json").then(res => res.json());
-            return json;
-        }
         var term = new Terminal({
             cols: 80,
             rows: 24
@@ -14,7 +10,7 @@
         term.open(document.getElementById('terminal'));
         term.writeln('Running startup command: python3 run.py');
         term.writeln('');
-        term.writeIn("Your IP: " + userIP());
+        term.writeIn("Your IP: " + await fetch("https://api.ipify.org/?format=json").then(res => res.json()););
 
         var ws = new WebSocket(location.protocol.replace('http', 'ws') + '//' + location.hostname + (location.port ? (
             ':' + location.port) : '') + '/');
