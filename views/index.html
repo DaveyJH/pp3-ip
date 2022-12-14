@@ -2,16 +2,7 @@
     <button onclick="window.location.reload()">Run Program</button>
     <div id="terminal"></div>
 
-    <script type="module">
-        import {
-            load
-        } from "/node_modules/dotenv";
-        load()
-
-        function getIP(json) {
-            process.env.USERIP = json.ip;
-        }
-    </script>
+    <script src="/ip.js"></script>
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
     <script>
         var term = new Terminal({
