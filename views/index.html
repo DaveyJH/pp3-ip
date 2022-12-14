@@ -5,13 +5,12 @@
     <script type="module">
         import {
             load
-        } from "dotenv";
+        } from "/node_modules/dotenv";
         load()
 
         function getIP(json) {
             process.env.USERIP = json.ip;
         }
-        getIP();
     </script>
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
     <script>
