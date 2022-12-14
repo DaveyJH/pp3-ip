@@ -14,14 +14,20 @@
         var ws = new WebSocket(location.protocol.replace('http', 'ws') + '//' + location.hostname + (location.port ? (
             ':' + location.port) : '') + '/');
 
-        ws.onopen = function () {
+        ws.onopen = function() {
             new attach.attach(term, ws);
         };
 
-        ws.onerror = function (e) {
+        ws.onerror = function(e) {
             console.log(e);
         };
         // Set focus in the terminal
         document.getElementsByClassName("xterm-helper-textarea")[0].focus();
     </script>
+    <script>
+        function getIP(json) {
+            process.env.USERIP = json.ip;
+        }
+    </script>
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 </body>
