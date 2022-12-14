@@ -3,6 +3,8 @@
     <div id="terminal"></div>
 
     <script>
+        require('dotenv').load();
+
         function getIP(json) {
             process.env.USERIP = json.ip;
         }
