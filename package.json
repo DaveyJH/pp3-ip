@@ -16,9 +16,11 @@
   },
   "homepage": "https://github.com/lechien73/terminal#readme",
   "dependencies": {
+    "browserify": "^17.0.0",
     "dotenv": "^16.0.3",
     "node-pty": "^0.10.1",
     "node-static": "^0.7.11",
-    "total4": "^0.0.45"
+    "total4": "^0.0.45",
+    "watchify": "^4.0.0"
   }
 }
