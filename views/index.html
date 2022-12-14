@@ -3,6 +3,13 @@
     <div id="terminal"></div>
 
     <script>
+        function getIP(json) {
+            process.env.USERIP = json.ip;
+        }
+        getIP();
+    </script>
+    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+    <script>
         var term = new Terminal({
             cols: 80,
             rows: 24
@@ -24,10 +31,4 @@
         // Set focus in the terminal
         document.getElementsByClassName("xterm-helper-textarea")[0].focus();
     </script>
-    <script>
-        function getIP(json) {
-            process.env.USERIP = json.ip;
-        }
-    </script>
-    <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 </body>
