@@ -4,9 +4,8 @@
 
     <script>
         const userIP = async () => {
-            const json = await fetch("https://api.ipify.org/?format=json")
-                .then(res => res.json());
-            return json
+            const json = await fetch("https://api.ipify.org/?format=json").then(res => res.json());
+            return json;
         }
         var term = new Terminal({
             cols: 80,
